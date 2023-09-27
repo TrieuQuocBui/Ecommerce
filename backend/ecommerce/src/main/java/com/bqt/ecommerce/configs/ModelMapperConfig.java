@@ -14,7 +14,7 @@ public class ModelMapperConfig {
     // Annotation @Bean(only lie in config) tick on method allow the spring know this Bean and will carry out put Bean into Context
     @Bean
     public ModelMapper modelMapper(){
-        // Init object and Config
+        // Init object and Config test
         ModelMapper modelMapper = new ModelMapper();
         modelMapper.getConfiguration()
                 .setMatchingStrategy(MatchingStrategies.STRICT);
