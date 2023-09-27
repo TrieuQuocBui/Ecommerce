@@ -1,0 +1,38 @@
+
+    <table class="details_cart">
+      <tr>
+        <th>Sản phẩm</th>
+        <th>Số lượng</th>
+        <th>Tổng tiền</th>
+      </tr>
+      <ng-container *ngFor="let item of order.detailsOrders">
+        <tr>
+          <td>
+            <div class="product_block">
+              <div class="product_img">
+                <img src="https://images.fpt.shop/unsafe/fit-in/240x215/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2022/1/26/637787904727727554_asus-tuf-gaming-fx506lh-den-2022-dd.jpg" alt="">
+              </div>
+              <div class="product_infor">
+                <div class="product_name">
+                  <span>ABCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaaaaaa</span>
+                </div>
+                <div class="product_cost">
+                  <span>100</span>
+                </div>
+                <div class="product_promotion">
+                  <span>800</span>
+                </div>
+              </div>
+            </div>
+          </td>
+          <td>{{item.quantity}}</td>
+          <td>{{ item.quantity! * item.price! }}</td>
+        </tr>
+      </ng-container>
+      <tr>
+        <td></td>
+        <td></td>
+        <td>{{totalMoney}}</td>
+      </tr>
+    </table>
+

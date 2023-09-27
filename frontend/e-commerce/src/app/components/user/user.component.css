@@ -1,0 +1,11 @@
+.main{
+    background-color: #f8f9fa;
+    display: block;
+    height: 100%;
+}
+
+.content{
+    padding-top: 70px;
+    height: 100%;
+}
+

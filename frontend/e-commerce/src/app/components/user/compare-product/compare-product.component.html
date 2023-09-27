@@ -1,0 +1,112 @@
+<div class="row r-m">
+  <ul class="col l-12 breadcrumb">
+    <li class="breadcrumb-item"><a href="">Trang chủ</a></li>
+    <li class="breadcrumb-item"><a>So sánh</a></li>
+  </ul>
+</div>
+
+<div class="row mt-30 mb-40 c-p-name">
+  <div class=" l-6 name">
+    <h2>{{productLeft?.name}}</h2>
+  </div>
+  <div class=" l-6 name">
+    <h2 >{{productRight?.name}}</h2>
+  </div>
+</div>
+
+<div class="row mt-30 mb-40 c-p-body">
+  <div class=" l-6 body">
+    <input placeholder="Nhập tên sản phẩm cần so sánh" [value]="productLeft?.name" (keyup)="searchProductLeft($event)" (blur)=" hideSearchLeft()"/>
+    <ul #suggestedSearchLeft class="suggested-search">
+      <li *ngFor="let item of productListLeft">
+        <a (mousedown)="selectProductLeft(item?.name)">
+          <div class="suggested-search-block row">
+            <div class="suggested-search-img l-2">
+              <img
+                src="https://images.fpt.shop/unsafe/fit-in/60x60/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Thumbs/2020/11/12/637407970062806725_mba-2020-gold-dd.png"
+                alt=""
+              />
+            </div>
+            <div class="suggested-search-info l-10">
+              <span class="suggested-search-name"
+                >MacBook Air 13 inch M1 2020 8CPU 7GPU 8GB/256GB</span
+              >
+              <span class="suggested-search-cost">Chỉ từ 18.390.000</span>
+            </div>
+          </div>
+        </a>
+      </li> 
+    </ul>
+    <div class="conten-search" *ngIf="productLeft">
+      <div class="conten-search-img">
+        <img
+          src="https://images.fpt.shop/unsafe/fit-in/240x240/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2022/1/26/637787904727727554_asus-tuf-gaming-fx506lh-den-2022-dd.jpg"
+          alt=""
+        />
+      </div>
+      <div class="conten-search-cost">
+        <span>Chỉ từ <span>15.490.000đ</span> </span>
+      </div>
+      <div class="conten-search-details">
+        <a class="link" [routerLink]="['/products/',productLeft.id]">Xem chi tiết </a>
+      </div>
+    </div>
+  </div>
+  <div class=" l-6 body">
+    <input placeholder="Nhập tên sản phẩm cần so sánh" [value]="productRight?.name" (keyup)="searchProductRight($event)" (blur)=" hideSearchRight()"/>
+    <ul #suggestedSearchRight class="suggested-search">
+      <li *ngFor="let item of productListRight">
+        <a (mousedown)="selectProductRight(item?.name)">
+          <div class="suggested-search-block row">
+            <div class="suggested-search-img l-2">
+              <img
+                src="https://images.fpt.shop/unsafe/fit-in/60x60/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Thumbs/2020/11/12/637407970062806725_mba-2020-gold-dd.png"
+                alt=""
+              />
+            </div>
+            <div class="suggested-search-info l-10">
+              <span class="suggested-search-name"
+                >MacBook Air 13 inch M1 2020 8CPU 7GPU 8GB/256GB</span
+              >
+              <span class="suggested-search-cost">Chỉ từ 18.390.000</span>
+            </div>
+          </div>
+        </a>
+      </li> 
+    </ul>
+    <div class="conten-search" *ngIf="productRight">
+      <div class="conten-search-img">
+        <img
+          src="https://images.fpt.shop/unsafe/fit-in/240x240/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2022/1/26/637787904727727554_asus-tuf-gaming-fx506lh-den-2022-dd.jpg"
+          alt=""
+        />
+      </div>
+      <div class="conten-search-cost">
+        <span>Chỉ từ <span>15.490.000đ</span> </span>
+      </div>
+      <div class="conten-search-details">
+        <a class="link" [routerLink]="['/products/',productRight.id]">Xem chi tiết </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row mt-30 mb-40 c-compare-detail">
+  <div class="c-compare-title col-12">
+    <h2 class="title">Thông tin so sánh cấu hình</h2>
+  </div>
+  <div class="c-compare-content col-12">
+    <ul class="c-compare-content-table">
+      <li>
+        <div class="prop">P/N</div>
+        <div class="detail">Xem trong sách hướng dẫn sử dụng</div>
+        <div class="detail">Xem trong sách hướng dẫn sử dụng</div>
+      </li>
+      <li>
+        <div class="prop">P/N</div>
+        <div class="detail">Xem trong sách hướng dẫn sử dụng</div>
+        <div class="detail">Xem trong sách hướng dẫn sử dụng</div>
+      </li>
+    </ul>
+  </div>
+</div>

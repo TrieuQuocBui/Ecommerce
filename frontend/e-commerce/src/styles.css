@@ -1,0 +1,299 @@
+/* You can add global styles to this file, and also import other style files */
+@import "./assets/common/grid.css";
+@import "./assets/common/modal.css";w
+
+* {
+  box-sizing: border-box;
+}
+
+a{
+  text-decoration: none;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html {
+  font-size: 62.5%;
+  line-height: 1.5rem;
+  font-family: Roboto,Helvetica,Arial,sans-serif;
+  box-sizing: border-box;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+input {
+  outline: none;
+}
+
+.mt-6 {
+  margin-top: 6px;
+}
+
+.mt-10 {
+  margin-top: 10px;
+}
+
+.mt-30{
+  margin-top: 30px;
+}
+
+.mb-40{
+  margin-bottom: 40px;
+}
+
+.mb-10 {
+  margin-bottom: 10px;
+}
+
+.ml-10 {
+  margin-left: 10px;
+}
+
+.mr-10{
+  margin-right: 10px;
+}
+
+.mb-20 {
+  margin-bottom: 20px;
+}
+
+.f-w-7{
+  font-weight: 700;
+}
+
+.flex {
+  display: flex;
+}
+
+.algin-items-center {
+  align-items: center;
+}
+
+.btn {
+  position: absolute;
+  top: 50%;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  z-index: 1;
+  outline: none;
+  border: none;
+  padding: 0;
+  background-color: #fff;
+  box-shadow: 0 0 7px -4px #000;
+  cursor: pointer;
+}
+
+.icon{
+  
+}
+
+
+.breadcrumb{
+  display: flex;
+  font-size: 1.5rem;
+}
+
+.breadcrumb-item{
+
+}
+
+.breadcrumb .breadcrumb-item {
+
+}
+
+.breadcrumb .breadcrumb-item a{
+  display: inline-block;
+  color: #0664f9;
+  text-decoration: none;
+
+}
+
+.breadcrumb .breadcrumb-item:not(:last-child) a:hover{
+  text-decoration: underline;
+}
+
+.breadcrumb .breadcrumb-item:not(:first-child) a::before{
+  display: inline-block;
+  content: "/";
+  padding: 0 5px;
+  color: #111010;
+  font-size: 1.6rem;
+}
+
+.breadcrumb .breadcrumb-item:last-child a{
+  color: #111010;
+}
+
+
+.link{
+  display: inline-block;
+  font-size: 1.6rem;
+  color: #0664f9;
+  position: relative;
+  text-decoration: none;
+}
+
+@keyframes underlineSpread {
+  0%{
+      width: 0%;
+  }
+  50%{
+      width: 25%;
+  }
+  100%{
+      width: 50%;
+  }
+}
+
+.link::before{
+  display: none;
+  position: absolute;
+  content: "";
+  height: 1px;
+  background-color: #0664f9;
+  bottom: -3px;
+  left: 50%;
+  animation: underlineSpread 0.5s linear forwards;
+}
+
+.link::after{
+  display: none;
+  position: absolute;
+  content: "";
+  height: 1px;
+  background-color: #0664f9;
+  bottom: -3px;
+  right: 50%;
+  animation: underlineSpread 0.5s linear forwards;
+}
+
+.link:hover::before,.link:hover::after{
+  display: block;
+}
+
+.details_cart {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+}
+
+.details_cart tr {
+}
+
+.details_cart tr th {
+  text-align: left;
+  padding: 5px;
+  color: #fff;
+  background-color: #7a76b7;
+  height: 40px;
+}
+
+.details_cart tr td {
+  text-align: left;
+  padding: 10px 5px;
+  min-width: 150px;
+}
+
+.details_cart tr input {
+  width: 40px;
+  height: 20px;
+  padding: 5px;
+}
+
+.details_cart tr td .product_block  {
+    display: flex;
+    max-width: 700px;
+  }
+
+.details_cart tr td .product_block .product_infor {
+  font-size: 1.6rem;
+  margin-top: 18px;
+  margin-left: 10px;
+  flex: 1;
+}
+
+.details_cart tr td .product_block .product_infor .product_name span {
+  display: block;
+  width: 500px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  margin-bottom: 5px;
+}
+
+.details_cart tr td .product_block .product_infor .product_cost {
+    margin-bottom: 5px;
+  }
+
+
+.details_cart tr td .product_block .product_img img {
+  width: 100px;
+  height: 100px;
+}
+
+.container-empty {
+  text-align: center;
+  padding: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.container-empty h1 {
+  color: #333;
+}
+
+.container-empty p {
+  font-size: 1.4rem;
+  color: #666;
+}
+
+.container-empty a {
+  display: block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.container-empty a:hover {
+  background-color: #0056b3;
+}
+
+.flex{
+  display: flex;
+}
+
+.fixed{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}

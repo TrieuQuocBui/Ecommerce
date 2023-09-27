@@ -1,0 +1,92 @@
+main {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+form {
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 2rem;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  font-size: 1.4rem;
+}
+
+input[type="text"],
+input[type="file"],
+input[type="date"],
+textarea,
+input[type="email"],
+input[type="url"] {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+button[type="submit"] {
+  background-color: #333;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.profile-form-container {
+  display: flex;
+}
+
+.profile-image {
+    flex: 1;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+  }
+  
+  .profile-image img {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 50%;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  .change-image-text {
+    position: absolute;
+    bottom: 40px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+    left: 0;
+    right: 0;
+    background-color: rgba(245, 244, 244, 0);
+    color: black;
+    padding: 0.5rem;
+    text-align: center;
+    font-size: 1.5rem;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    z-index: 10;
+  }
+  
+  .profile-image:hover .change-image-text {
+    opacity: 1;
+  }
+  
+  .image-upload {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+  }

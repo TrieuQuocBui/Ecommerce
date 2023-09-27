@@ -1,0 +1,149 @@
+<div class="content l-12">
+  <div class="content__heading">
+    <h2>Danh sách hãng sản xuất</h2>
+  </div>
+  <div class="content__main">
+    <div class="content__main__heading">
+      <div class="content__main__add">
+        <span>Thêm hãng:</span>
+        <button
+          class="content__main__add__btn"
+          (click)="redirectPage('/admin/supplier/adding')"
+          title="Thêm mới"
+        >
+          <fa-icon
+            class="form__group__icon"
+            [icon]="iCon"
+            class="icon"
+          ></fa-icon>
+        </button>
+      </div>
+      <form class="form" action="">
+        <div class="form__group" style="flex-direction: row">
+          <input
+            class="form__group__input"
+            style="margin-top: 0; width: 300px"
+            type="search"
+            placeholder="Tìm kiếm..."
+          />
+          <button type="submit" class="form__group__submit">
+            <fa-icon
+              class="form__group__icon"
+              [icon]="iconSearch"
+              class="icon"
+            ></fa-icon>
+          </button>
+        </div>
+      </form>
+    </div>
+    <div class="content__main__list" >
+      <table class="table" >
+        <thead>
+          <tr>
+            <th>Mã hãng</th>
+            <th>Tên nhà cung cấp</th>
+            <th>Số điện thoại</th>
+            <th>Địa chỉ</th>
+            <th>Trạng thái</th>
+            <th>Thao tác</th>
+          </tr>
+        </thead>
+        <tbody class="listTodo" >
+          <ng-container *ngFor="let item of supplierList; let i = index">
+            <tr>
+              <td>{{ item.id }}</td>
+              <td>{{ item.name }}</td>
+              <td>{{ item.sdt }}</td>
+              <td>{{ item.address }}</td>
+              <td>{{ item.status ? "Hợp tác" : "Hết hợp tác" }}</td>
+              <td>
+                <div class="operation">
+                  <ng-container *ngIf="item.receipt?.length != 0">
+                    <button class="btn-info" title="Thông tin" 
+                    [appModal]="item.id + 'info'"
+                    [positionClose]="i"
+                    [widthSize]="'40%'">
+                      <fa-icon [icon]="iconInfo" class="icon"></fa-icon>
+                    </button>
+
+                    <ng-template #content>
+                      <h2>Thông tin phiếu đặt</h2>
+                      <ng-container *ngFor="let r of item.receipt">
+                        <p><span class="info-label">Tên phiếu đặt: </span> <span id="lastName">{{r.id}}</span></p>
+                      </ng-container>
+                     
+                    </ng-template>
+                  
+                    <app-modal
+                      [idModal]="item.id + 'info'"
+                      [template]="content"
+                    ></app-modal>
+                  </ng-container>
+                  <button class="btn-update" title="Cập nhật" (click)="redirectPage('admin/supplier/updating/' + item.id)">
+                    <fa-icon [icon]="iconUpdate" class="icon"></fa-icon>
+                  </button>
+                  <button class="btn-remove" title="Xoá" 
+                  [appModal]="item.id + ''"
+                  [positionClose]="i"
+                  [widthSize]="'20%'">
+                    <fa-icon [icon]="iconDelete" class="icon"></fa-icon>
+                  </button>
+                  <ng-template #content>
+                    Chắc chắn bạn xoá nhà cung cấp này không?
+                  </ng-template>
+                  <ng-template #notify>
+                    <app-notification
+                      (checked)="checked($event, item, '')"
+                      [template]="content"
+                    ></app-notification>
+                  </ng-template>
+
+                  <app-modal
+                    [idModal]="item.id + ''"
+                    [template]="notify"
+                  ></app-modal>
+
+
+                </div>
+              </td>
+            </tr>
+          </ng-container>
+        </tbody>
+      </table>
+    </div>
+    <div class="content__main__pagination">
+      <!-- <ul class="pagination">
+             <li class="pagination__item active">1</li>
+             <li class="pagination__item">2</li>
+             <li class="pagination__item">3</li>
+             <li class="pagination__item">...</li>
+             <li class="pagination__item">7</li>
+             <li class="pagination__item">8</li>
+             <li class="pagination__item">9</li>
+         </ul> -->
+      <!-- <app-pagination
+        [currentPage]="currentPage!"
+        [totalPages]="totalPages"
+        [pageSize]="itemsPerPage"
+        (goToPage)="onPageChange($event)"
+      >
+      </app-pagination> -->
+    </div>
+  </div>
+  
+  <ng-container *ngIf="message != undefined"  
+  [appModal]="'notification'"
+  [positionClose]="1"
+  [widthSize]="'20%'"
+  [openModal]="true">
+    <ng-template #a>
+      {{message}}
+    </ng-template>
+
+    <app-modal
+    [idModal]="'notification'"
+    [template]="a"
+  ></app-modal>
+  </ng-container>
+  
+</div>

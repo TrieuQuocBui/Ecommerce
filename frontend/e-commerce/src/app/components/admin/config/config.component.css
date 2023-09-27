@@ -1,0 +1,164 @@
+.content{
+    background-color: #f4f6f9;
+}
+
+.content__heading{
+    margin: 20px 0;
+}
+
+.content__heading h2{
+    padding: 10px;
+    font-size: 2.8rem;
+    margin: 0;
+    font-weight: 500;
+}
+.content__main{
+    margin: 10px;
+    background-color:white;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: 5px;
+}
+.content__main__heading{
+    border-bottom: 1px solid rgba(0,0,0,.125);
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.content__main__heading{
+    font-size: 1.6rem;
+}
+
+.content__main__add{
+    display: flex;
+    align-items: center;
+}
+
+.content__main__add span{
+
+} 
+
+.content__main__add__btn{
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    margin-left: 6px;
+    border: 1px solid rgba(0,0,0,.125);
+    background-color: #f8f9fa;
+    cursor: pointer;
+}
+
+.content__main__add__btn:hover{
+    background-color: #d3d3d4;
+}
+
+.content__main__add__btn i{
+
+}
+
+.content__main__list {
+    display: flex;
+    overflow-y: scroll;
+    height: 400px;
+}
+
+.content__main__list::-webkit-scrollbar {
+    width: 4px; /* Width of the scrollbar */
+    background-color: #d4dae0;
+  }
+  
+  /* Customize the scrollbar thumb */
+.content__main__list::-webkit-scrollbar-thumb {
+    background-color: #888; /* Color of the scrollbar thumb */
+    border-radius: 5px; /* Rounded corners of the thumb */
+  }
+
+.table{
+    flex: 1;
+    
+    border-collapse: collapse;
+    font-size: 1.2em;
+    font-family: sans-serif;
+    width: inherit;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.table thead tr {
+    background-color: #343a40;
+    color: #ffffff;
+    text-align: left;
+}
+
+.table th,
+.table td {
+    padding: 12px 15px;
+}
+
+.table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.table tbody tr:last-of-type {
+    border-bottom: 2px solid #343a40;
+}
+
+.content__main__pagination{
+    padding: 10px;
+}
+
+.pagination{
+    font-size: 1.6rem;
+    display: flex;
+    justify-content: end;
+}
+
+.pagination__item{
+    cursor: pointer;
+    color: #ffffff;
+    background-color: #343a40;
+    padding: 12px;
+}
+
+.pagination__item:hover{
+    background-color: #ebecec;
+}
+
+.pagination__item.active{
+    background-color: #ebecec;
+}
+
+.operation{
+    font-size: 1.6rem;
+}
+
+.operation button{
+    height: 30px;
+    border: 1px solid rgba(0,0,0,.125);
+    background-color: #f8f9fa;
+    cursor: pointer;
+}
+
+.operation button:hover{
+    background-color: #d3d3d4;
+}
+
+.operation button .info{
+    color: rgb(78, 205, 214);
+}
+
+.operation button .update{
+    color: rgb(78, 214, 98);
+}
+
+.operation button .remove{
+    color: rgb(214, 78, 82);
+}
+
+.img{
+    width: 70px;
+    height: 70px;
+}

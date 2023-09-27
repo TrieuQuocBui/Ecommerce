@@ -1,0 +1,251 @@
+.c-p-name {
+}
+
+/* .c-p-name div:first-child{
+    position: relative;
+}
+
+.c-p-name div:first-child::after{
+    position: absolute;
+    content: "VS";
+    right: -14px;
+    top: 0;
+    bottom: 0;
+    display: block;
+    font-size: 2rem;
+    font-weight: 500;
+} */
+
+.c-p-name div{
+  text-align: center;
+}
+
+.c-p-name div h2 {
+  font-size: 2rem;
+  
+}
+
+.p-2 {
+  float: right;
+}
+
+.c-p-body {
+  position: relative;
+  height: 426px;
+}
+
+.c-p-body::before {
+  z-index: 1;
+  position: absolute;
+  content: "";
+  height: 100%;
+  width: 1px;
+  display: block;
+  background-color: #444b52;
+  left: 50%;
+}
+
+.c-p-body::after {
+  z-index: 2;
+  position: absolute;
+  content: "vs";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: calc(50% - 20px);
+  bottom: 50%;
+  font-size: 2rem;
+  font-weight: 600;
+  height: 40px;
+  width: 40px;
+  border: 1px solid black;
+  background-color: #fff;
+  border-radius: 50%;
+}
+
+.c-p-body .body {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.c-p-body .body input {
+  color: #444b52;
+  padding: 5px;
+  font-size: 1.6rem;
+  width: 70%;
+  height: 30px;
+  position: relative;
+}
+
+.suggested-search {
+  display: none;
+  position: absolute;
+  top: 43px;
+  z-index: 10;
+  border: 0.5px solid #ddd;
+  background-color: #fff;
+  width: inherit;
+  overflow: hidden;
+  overflow-y: auto;
+}
+
+/* Customize the scrollbar track */
+.suggested-search::-webkit-scrollbar {
+  width: 4px; /* Width of the scrollbar */
+  background-color: #d4dae0;
+}
+
+/* Customize the scrollbar thumb */
+.suggested-search::-webkit-scrollbar-thumb {
+  background-color: #888; /* Color of the scrollbar thumb */
+  border-radius: 5px; /* Rounded corners of the thumb */
+}
+
+.suggested-search li {
+  padding: 6px;
+  border: 1px solid #ddd;
+}
+.suggested-search li a {
+  cursor: pointer;
+  color: blueviolet;
+}
+
+.suggested-search li a .suggested-search-block {
+}
+
+.suggested-search li a .suggested-search-block .suggested-search-img img {
+  margin-right: 10px;
+}
+
+.suggested-search li a .suggested-search-block .suggested-search-info {
+  font-size: 1.4rem;
+  display: flex;
+  flex-flow: column;
+  color: #000;
+}
+
+.suggested-search
+  li
+  a
+  .suggested-search-block
+  .suggested-search-info
+  .suggested-search-name {
+  display: block;
+  flex: 1;
+  line-height: 20px;
+}
+
+.suggested-search
+  li
+  a
+  .suggested-search-block
+  .suggested-search-info
+  .suggested-search-cost {
+  display: block;
+  line-height: 20px;
+}
+
+.conten-search {
+  display: block;
+  background-color: #fff;
+  width: 50%;
+  border-radius: 6px;
+  padding: 0 20px;
+}
+
+.conten-search-img {
+}
+
+.conten-search-img img {
+  width: 100%;
+}
+
+.conten-search-cost {
+  text-align: center;
+}
+
+.conten-search-cost span {
+  line-height: inherit;
+  font-size: 1.8rem;
+}
+
+.conten-search-cost span span {
+  font-size: 2rem;
+  color: #776bcc;
+}
+
+.conten-search-details {
+  text-align: center;
+}
+
+.conten-search-details a {
+  margin-top: 20px;
+  font-size: 1.3rem;
+}
+
+.c-compare-detail{
+  box-shadow: 0 2px 4px #e1e4e6;
+    border-radius: 6px;
+    background: #fff;
+    margin-top: 60px;
+}
+.c-compare-title{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 0 24px;
+    box-shadow: inset 0 -1px 0 #edeeef;
+    background: #776BCC;
+}
+
+.c-compare-title h2{
+  display: table-cell;
+  color: #fff;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 32px;
+  padding: 8px 0;
+}
+
+.c-compare-content{
+
+}
+.c-compare-content-table{
+  display: block;
+  background: #fff;
+  padding: 0 24px;
+}
+
+.c-compare-content-table li{
+  display: inline-flex;
+}
+
+.c-compare-content-table li:not(:last-child){
+  border-bottom: 1px solid #d6e0e9;
+}
+
+.c-compare-content-table li .prop{
+  width: 246px;
+    padding: 8px 20px 8px 0;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    display: flex;
+    align-items: center;
+    align-self: flex-start;
+    color: #99a2aa;
+}
+
+.c-compare-content-table li .detail{
+    display: flex;
+    width: 458px;
+    padding: 8px 20px 8px 24px;
+    min-height: 40px;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+    color: #444b52;
+    align-items: center;
+    align-self: flex-start;
+}

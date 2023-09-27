@@ -1,0 +1,32 @@
+
+<header class="header">
+  <div class="header-logo l-4 flex algin-items-center">
+    <a class="header-logo-link" href="">
+      <img [src]="'assets/imgs/logo.jpg'" alt="asdas">
+    </a>
+  </div>
+  <div class="header-search l-4">
+    <input  type="search" name="" id="" placeholder="Nhập tên laptop... cần tìm">
+    <button>Tìm kiếm</button>
+  </div>
+  <div class="header-nav l-4">
+      <ul >
+        <li><a [routerLink]="'home'" routerLinkActive="active"  ariaCurrentWhenActive="page" title="Trang chủ" class="header-nav-item"><fa-icon [icon]="fashome" class="icon"></fa-icon></a></li>
+        <li><a [routerLink]="'compare'" title="So sánh" routerLinkActive="active" class="header-nav-item"><fa-icon [icon]="fascompare" class="icon"></fa-icon></a></li>
+        <li><a [routerLink]="'cart'" title="Giỏ hàng" routerLinkActive="active" class="header-nav-item"><fa-icon [icon]="fascart" class="icon"></fa-icon></a></li>
+        <li><a [routerLink]="'order/list'" title="Danh sách đặt hàng" routerLinkActive="active" class="header-nav-item"><fa-icon [icon]="fastruck" class="icon"></fa-icon></a></li>
+        <li><a class="header-nav-item"><fa-icon [icon]="faslogin" class="icon"></fa-icon>
+          <div class="menu-login" *ngIf="isLogged">
+            <div class="menu-login-item"><button (click)="redirectToPage('/profile')">Hồ sơ</button></div>
+            <div class="menu-login-item"><button (click)="onLogout()">Thoát</button></div>
+          </div>
+          <div class="menu-login" *ngIf="!isLogged">
+            <div class="menu-login-item"><button (click)="redirectToPage('/login')">Đăng nhập</button></div>
+            <div class="menu-login-item"><button (click)="redirectToPage('/register')">Đăng kí</button></div>
+          </div>
+        </a>
+        </li>
+        
+      </ul>
+  </div>
+</header>

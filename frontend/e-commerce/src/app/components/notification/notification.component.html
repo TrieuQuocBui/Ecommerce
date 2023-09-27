@@ -1,0 +1,27 @@
+<div class="container-modal">
+  <ng-container *ngIf="title == undefined">
+    <h1 style="text-align: center;text-transform: uppercase;">Thông báo</h1>
+  </ng-container>
+  <ng-container *ngIf="title != undefined">
+    <h1 style="text-align: center;text-transform: uppercase;">{{title}}</h1>
+  </ng-container>
+  <p>
+    <!-- *ngTemplateOutlet use render a template init by ng-template-->
+    <ng-container
+    *ngTemplateOutlet="template"
+  ></ng-container>
+  </p>
+
+  <div class="clearfix">
+    <ng-container *ngIf="submitName == undefined; else other">
+      <button type="button" (click)="submitConfirm()" class="confirmbtn">Xác nhận</button>
+    </ng-container>
+
+    <ng-template #other>
+      <button type="button" (click)="submitConfirm()" class="confirmbtn">{{submitName}}</button>
+    </ng-template>
+
+
+    <button type="button" (click)="submitCancel()"class="cancelbtn">Huỷ bỏ</button>
+  </div>
+</div>

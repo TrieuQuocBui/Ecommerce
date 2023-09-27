@@ -1,0 +1,43 @@
+button {
+    background-color: #04AA6D;
+    color: white;
+    margin: 8px 0;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+  }
+  
+  button:hover {
+    opacity:1;
+  }
+  
+  /* Float cancel and delete buttons and add an equal width */
+  .confirmbtn{
+    float: left;
+    width: 30%;
+  }
+  
+  .cancelbtn{
+    float: right;
+    width: 30%;
+  }
+  
+  
+  /* Add a color to the cancel button */
+  .confirmbtn {
+    background-color: #776BCC;
+  }
+  
+  /* Add a color to the delete button */
+  .cancelbtn {
+    background-color: #f44336;
+  }
+
+
+  .clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+  }

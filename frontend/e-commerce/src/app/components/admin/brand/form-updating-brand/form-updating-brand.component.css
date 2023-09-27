@@ -1,0 +1,89 @@
+.content{
+    background-color: #f4f6f9;
+}
+
+.content__heading{
+    margin: 20px 0;
+}
+
+.content__heading h2{
+    padding: 10px;
+    font-size: 2.8rem;
+    margin: 0;
+    font-weight: 500;
+}
+.content__main{
+    margin: 10px;
+    background-color:white;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: 5px;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 8px;
+    font-size: 1.6rem;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="file"],
+input[type="checkbox"] {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+input[type="checkbox"] {
+    width: auto;
+    margin-left: 5px;
+}
+
+button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: -10px;
+    margin-bottom: 10px;
+}
+
+.brand_image{
+    width: 100%;
+    height: 200px;
+}

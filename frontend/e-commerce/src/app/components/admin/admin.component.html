@@ -1,0 +1,18 @@
+<main class="main grid">
+    <div class="row">
+        <div class="col l-2 fixed flex">
+            <app-navbar style="flex: 1;"></app-navbar>
+        </div>
+        <div class="col l-10 l-0-2">
+            <div class="row">
+                <div class="col l-12">
+                    <app-header></app-header>
+                </div>
+                <div class="col l-12">
+                    <router-outlet></router-outlet>
+                    <app-footer style="width: 100%;"></app-footer>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

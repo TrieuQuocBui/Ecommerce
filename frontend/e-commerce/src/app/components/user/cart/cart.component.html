@@ -1,0 +1,81 @@
+<div class="row mb-20">
+  <ul class=" l-12 breadcrumb">
+    <li class="breadcrumb-item"><a href="">Trang chủ</a></li>
+    <li class="breadcrumb-item"><a>Giỏ hàng</a></li>
+  </ul>
+</div>
+<div class="cart">
+  <div class="row">
+    <div class="l-12">
+      <ng-template
+        *ngIf="cart.length == 0; then empty; else listOrder"
+      ></ng-template>
+      <ng-template #empty> 
+        <div class="container-empty">
+          <h1>Giỏ hàng trống</h1>
+          <p>Giỏ hàng hiện tại của bạn đang trống!</p>
+          <a href="/home">Vui lòng xem sản phẩm</a>
+        </div>
+        
+      </ng-template>
+      <ng-template #listOrder>
+        <table class="details_cart">
+          <tr>
+            <th>Lựa chọn</th>
+            <th>Sản phẩm</th>
+            <th>Số lượng</th>
+            <th>Tổng tiền</th>
+            <th>Thao tác</th>
+          </tr>
+
+          <ng-container *ngFor="let item of cart">
+            <tr>
+              <td>
+                <input
+                  [checked]="item.select"
+                  type="checkbox"
+                  [value]="item.product?.id"
+                  (change)="onCheckboxChange($event)"
+                />
+              </td>
+              <td>
+                <div class="product_block">
+                  <div class="product_img">
+                    <img
+                      src="https://images.fpt.shop/unsafe/fit-in/240x215/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2022/1/26/637787904727727554_asus-tuf-gaming-fx506lh-den-2022-dd.jpg"
+                      alt=""
+                    />
+                  </div>
+                  <div class="product_infor">
+                    <div class="product_name">
+                      <span>ABCAAAAAAAAAAAAAAAAAAAA</span>
+                    </div>
+                    <div class="product_cost">
+                      <span>100</span>
+                    </div>
+                    <div class="product_promotion">
+                      <span>800</span>
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <input
+                  type="number"
+                  min="1"
+                  [value]="item.quantity"
+                  (change)="onQuantityChange(item.product?.id, $event)"
+                />
+              </td>
+              <td>{{ item.quantity! * item.price! }}</td>
+              <td>100</td>
+            </tr>
+          </ng-container>
+        </table>
+      </ng-template>
+    </div>
+  </div>
+  <ng-container *ngIf="cart.length != 0">
+    <button (click)="submitCart()" [disabled]="selectedItems.length <= 0" class="btn-continue">Tiếp theo</button>
+  </ng-container>
+</div>

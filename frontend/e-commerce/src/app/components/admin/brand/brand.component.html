@@ -1,0 +1,128 @@
+<div class="content l-12">
+  <div class="content__heading">
+    <h2>Danh sách hãng sản xuất</h2>
+  </div>
+  <div class="content__main">
+    <div class="content__main__heading">
+      <div class="content__main__add">
+        <span>Thêm hãng:</span>
+        <button
+          class="content__main__add__btn"
+          (click)="redirectPage('/admin/brand/adding')"
+          title="Thêm mới"
+        >
+          <fa-icon
+            class="form__group__icon"
+            [icon]="iCon"
+            class="icon"
+          ></fa-icon>
+        </button>
+      </div>
+      <form class="form" action="">
+        <div class="form__group" style="flex-direction: row">
+          <input
+            class="form__group__input"
+            style="margin-top: 0; width: 300px"
+            type="search"
+            placeholder="Tìm kiếm..."
+          />
+          <button type="submit" class="form__group__submit">
+            <fa-icon
+              class="form__group__icon"
+              [icon]="iconSearch"
+              class="icon"
+            ></fa-icon>
+          </button>
+        </div>
+      </form>
+    </div>
+    <div class="content__main__list">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Mã hãng</th>
+            <th>Hình ảnh</th>
+            <th>Tên hãng</th>
+            <th>Trạng thái</th>
+            <th>Thao tác</th>
+          </tr>
+        </thead>
+        <tbody class="listTodo">
+          <ng-container *ngFor="let item of brandList; let i = index">
+            <tr>
+              <td>{{ item.id }}</td>
+              <td>
+                <img class="img" [src]="ImageUrl + item.img" alt="" />
+              </td>
+              <td>{{ item.name }}</td>
+              <td>{{ item.status ? "hoạt động" : "không hoạt động" }}</td>
+              <td>
+                <div class="operation">
+                  <button class="btn-update" title="Cập nhật" (click)="redirectPage('/admin/brand/updating/' + item.id)">
+                    <fa-icon [icon]="iconUpdate" class="icon"></fa-icon>
+                  </button>
+                  <button *ngIf="item.products?.length == 0" class="btn-remove" title="Xoá" 
+                  [appModal]="item.id + ''"
+                  [positionClose]="i"
+                  [widthSize]="'20%'">
+                    <fa-icon [icon]="iconDelete" class="icon"></fa-icon>
+                  </button>
+                  <ng-template #content>
+                    Chắc chắn bạn xoá hãng này không?
+                  </ng-template>
+                  <ng-template #notify>
+                    <app-notification
+                      (checked)="checked($event, item, '')"
+                      [template]="content"
+                    ></app-notification>
+                  </ng-template>
+
+                  <app-modal
+                    [idModal]="item.id + ''"
+                    [template]="notify"
+                  ></app-modal>
+
+
+                </div>
+              </td>
+            </tr>
+          </ng-container>
+        </tbody>
+      </table>
+    </div>
+    <div class="content__main__pagination">
+      <!-- <ul class="pagination">
+             <li class="pagination__item active">1</li>
+             <li class="pagination__item">2</li>
+             <li class="pagination__item">3</li>
+             <li class="pagination__item">...</li>
+             <li class="pagination__item">7</li>
+             <li class="pagination__item">8</li>
+             <li class="pagination__item">9</li>
+         </ul> -->
+      <app-pagination
+        [currentPage]="currentPage!"
+        [totalPages]="totalPages"
+        [pageSize]="itemsPerPage"
+        (goToPage)="onPageChange($event)"
+      >
+      </app-pagination>
+    </div>
+  </div>
+  
+  <ng-container *ngIf="message != undefined"  
+  [appModal]="'notification'"
+  [positionClose]="1"
+  [widthSize]="'20%'"
+  [openModal]="true">
+    <ng-template #a>
+      {{message}}
+    </ng-template>
+
+    <app-modal
+    [idModal]="'notification'"
+    [template]="a"
+  ></app-modal>
+  </ng-container>
+  
+</div>

@@ -1,0 +1,17 @@
+<ul class="pagination">
+  <ng-container *ngIf="totalPages > 1">
+    <li class="pagination__item" (click)="goToPage.emit(1)" [ngClass]="{'disactive': currentPage === 1}"><fa-icon [icon]="faAnglesLeftIcon" class="icon"></fa-icon></li>
+    <li class="pagination__item" (click)="goToPage.emit(currentPage - 1)" [ngClass]="{'disactive': currentPage === 1}"><fa-icon [icon]="faAngleLeftIcon" class="icon"></fa-icon></li>
+    <ng-container *ngFor="let page of getPagesToShow()">
+      <li class="pagination__item"
+        (click)="goToPage.emit(page.page)"
+        [ngClass]="{'disactive': !page.isActive}"
+        [ngClass]="{'active': page.isActive}"
+      >
+        {{ page.page }}
+      </li>
+    </ng-container>
+    <li class="pagination__item" (click)="goToPage.emit(currentPage + 1)" [ngClass]="{'disactive': currentPage === totalPages}"><fa-icon [icon]="faAngleRightIcon" class="icon"></fa-icon></li>
+    <li class="pagination__item" (click)="goToPage.emit(totalPages)" [ngClass]="{'disactive': currentPage === totalPages}"><fa-icon [icon]="faAnglesRightIcon" class="icon"></fa-icon></li>
+  </ng-container>
+</ul>

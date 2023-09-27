@@ -1,0 +1,101 @@
+.header{
+    font-size: 1.8rem;
+    height: 60px;
+    border-bottom: 0.5px solid #dee2e6;
+}
+
+.header__nav{
+    display: flex;
+    height: 100%;
+}
+
+.header__item,
+.header__item--right{
+    height: inherit;
+}
+
+.header__item--right:hover .header__customOfUser{
+    display: block;
+}
+
+.header__item__link{
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    height: inherit;
+    color: rgba(0,0,0,.5);
+}
+
+.header__item__link.active{
+    color: black;
+}
+
+.header__item__link:hover{
+    color: black;
+}
+
+.header__nav--right{
+    display: flex;
+    height: 100%;
+    flex-direction: row-reverse;
+}
+
+.header__item__link--right{
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    height: inherit;
+    color: rgba(0,0,0,.5);
+}
+
+
+.header__item__link--right .icon{
+    font-size: 3rem;
+}
+
+.header__imgOfUser{
+    position: relative;
+}
+
+.header__imgOfUser img{
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.header__customOfUser{
+    display: none;
+    position: absolute;
+    right: 0px;
+    bottom: -78px;
+    background-color: #ffffff;
+    width: 140px;
+}
+
+.header__customOfUser::before{
+    position: absolute;
+    content: "";
+    border-width: 10px 10px;
+    border-style: solid;
+    border-color: transparent transparent #343a40 transparent;
+    right: 10px;
+    top: -19px;
+}
+
+.header__customOfUser__item{
+    background-color: #343a40;
+}
+
+.header__customOfUser__item__link{
+    color: #ffffff;
+    display: block;
+    padding: 10px;
+
+}   
+
+.header__customOfUser__item:hover{
+    color: #343a40;
+    background-color: #007bff;
+}
+

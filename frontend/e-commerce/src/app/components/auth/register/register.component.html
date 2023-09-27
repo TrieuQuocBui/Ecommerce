@@ -1,0 +1,123 @@
+<div class="container">
+  <div class="register">
+    <form [formGroup]="register" class="form" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <h2 class="form-group-title">Đăng kí</h2>
+      </div>
+      <div class="form-group">
+        <label class="form-group-label" for="username"><fa-icon [icon]="fasuser" class="form-icon"></fa-icon>Tên tài khoản</label>
+        <input
+          id="username"
+          class="form-group-input"
+          type="text"
+          formControlName="username"
+          placeholder="Nhập tên tài khoản"
+        />
+
+        <span
+          class="form-group-error"
+          *ngIf="
+            f['username'].invalid &&
+            (f['username'].dirty || f['username'].touched)
+          "
+        >
+          <span *ngIf="f['username'].errors">
+            <span *ngIf="f['username'].errors['required']"
+              >Trường này cần nhập</span
+            >
+            <span *ngIf="f['username'].errors['minlength']"
+              >Trường này ít nhất 6 kí tự</span
+            >
+          </span>
+        </span>
+
+        <span class="form-group-error" *ngIf="messageError"> 
+          <span >{{messageError}}</span>
+        </span>
+      </div>
+      <div class="form-group">
+        <label class="form-group-label" for="password"><fa-icon [icon]="faslock" class="form-icon"></fa-icon>Mật khẩu</label>
+        <input
+          id="password"
+          class="form-group-input"
+          type="password"
+          formControlName="password"
+          placeholder="Nhập mật khẩu"
+        />
+        <span
+          class="form-group-error"
+          *ngIf="
+            f['password'].invalid &&
+            (f['password'].dirty || f['password'].touched)
+          "
+        >
+          <span *ngIf="f['password'].errors">
+            <span *ngIf="f['password'].errors['required']"
+              >Trường này cần nhập</span
+            >
+            <span *ngIf="f['password'].errors['minlength']"
+              >Trường này ít nhất 6 kí tự</span
+            >
+          </span>
+        </span>
+      </div>
+      <div class="form-group">
+        <label class="form-group-label" for="confirmPassword"
+          ><fa-icon [icon]="faslock" class="form-icon"></fa-icon>Xác nhận mật khẩu</label
+        >
+        <input
+          id="confirmPassword"
+          class="form-group-input"
+          type="password"
+          formControlName="confirmPassword"
+          placeholder="Nhập xác nhận mật khẩu"
+        />
+        <span
+          class="form-group-error"
+          *ngIf="
+            f['confirmPassword'].invalid &&
+            (f['confirmPassword'].dirty || f['confirmPassword'].touched)
+          "
+        >
+          <span *ngIf="f['confirmPassword'].errors">
+            <span *ngIf="f['confirmPassword'].errors['required']"
+              >Trường này cần nhập</span
+            >
+            <span *ngIf="f['confirmPassword'].errors['matching']"
+              >Xác nhận mật khẩu thất bại</span
+            >
+          </span>
+        </span>
+      </div>
+      <div class="form-group">
+        <button
+          [disabled]="!register.valid"
+          [className]="
+            !register.valid ? 'form-group-btn-disabled' : 'form-group-btn'
+          "
+          type="submit"
+        >
+          Đăng kí
+        </button>
+      </div>
+      <div class="form-group">
+        <div class="form-group-link">
+          <a class="form-group-link-login" routerLink="/login"
+            >Tôi đã có tài khoản</a
+          >
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+<div id="Model" class="modal" *ngIf="messageSuccess && isMessageSuccess">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close" appDisplayModel>&times;</span>
+    <p>{{messageSuccess}}</p>
+  </div>
+
+</div>

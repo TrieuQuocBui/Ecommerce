@@ -1,0 +1,35 @@
+<form class="row mb-20" [formGroup]="updateUser" (ngSubmit)="saveProfile()">
+  <div class="l-3">
+    <div class="profile-form-container">
+      <div class="profile-image">
+        <img [src]="profileImageUrl" alt="Profile Image">
+        <div class="change-image-text" >
+          Chỉnh sữa ảnh
+        </div>
+        <input type="file" class="image-upload" title="" (change)="onImageChange($event)">
+      </div>
+      
+    </div>
+  </div>
+  <div class="l-9">
+    <div class="grid">
+      <main>
+          <label for="name">Họ:</label>
+          <input type="text" id="firstName"  formControlName="firstName"> 
+
+          <label for="name">Tên:</label>
+          <input type="text" id="lastName"  formControlName="lastName">
+
+          <label for="name">Số điện thoại:</label>
+          <input type="text" id="phoneNumber"  formControlName="phoneNumber">
+
+          <label for="name">CMND:</label>
+          <input type="text" id="identification" formControlName="identification">
+          
+          <label for="dob">Ngày sinh:</label>
+          <input type="date" id="birthDay" name="birthDay" formControlName="birthDay">
+          <button type="submit">Lưu thay đổi</button>
+      </main>
+    </div>
+  </div>
+</form>

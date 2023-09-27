@@ -1,0 +1,83 @@
+<div class="row ">
+  <ul class=" l-12 breadcrumb">
+    <li class="breadcrumb-item"><a href="">Trang chủ</a></li>
+    <li class="breadcrumb-item"><a href="">Asus</a></li>
+  </ul>
+</div>
+
+<div class="row r-m mt-30 mb-40 details-product-name">
+  <div class=" l-10 name">
+    <h2>
+      {{product?.name}}
+    </h2>
+  </div>
+  <div class=" l-2 btns">
+    <a class="link" [routerLink]="['/compare',product?.name]"
+      ><fa-icon [icon]="facompare" class="icon"></fa-icon> So sánh</a
+    >
+  </div>
+</div>
+<div class="row r-m details-product-img">
+  <div class=" l-6 imgs">
+    <img
+      src="https://images.fpt.shop/unsafe/fit-in/585x390/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2022/1/26/637788079927538825_asus-tuf-gaming-fx506lh-den-2022-1.jpg"
+      alt=""
+    />
+  </div>
+  <div class=" l-6 details-product-info">
+    <div class="info-config">
+      <h2 class="info-config-title">Thông số kỹ thuật</h2>
+      <div class="info-config-body">
+        <table class="table">
+          <tbody>
+            <tr>
+              <td>Màn hình</td>
+              <td>
+                {{product?.config?.displaySize}}
+              </td>
+            </tr>
+            <tr>
+              <td>CPU</td>
+              <td>{{product?.config?.cpu}}</td>
+            </tr>
+            <tr>
+              <td>RAM</td>
+              <td>{{product?.config?.ram}}</td>
+            </tr>
+            <tr>
+              <td>Ổ cứng</td>
+              <td>{{product?.config?.hardDrive}}</td>
+            </tr>
+            <tr>
+              <td>Đồ họa</td>
+              <td>{{product?.config?.graphicCard}}</td>
+            </tr>
+            <tr>
+              <td>Hệ điều hành</td>
+              <td>{{product?.config?.operatingSystem}}</td>
+            </tr>
+            <tr>
+              <td>Trọng lượng</td>
+              <td>{{product?.config?.weight}}</td>
+            </tr>
+            <tr>
+              <td>Kích thước</td>
+              <td>{{product?.config?.size}} mm</td>
+            </tr>
+            <tr>
+              <td>Xuất xứ</td>
+              <td>{{product?.config?.madeIn}}</td>
+            </tr>
+            <tr>
+              <td>Năm ra mắt</td>
+              <td>{{product?.config?.madeYear}}</td>
+            </tr>
+          </tbody>
+        </table>
+       
+      </div>
+    </div>
+    <button (click)="onAddIntoCart(product?.id)">Mua ngay</button>
+  </div>
+
+</div>

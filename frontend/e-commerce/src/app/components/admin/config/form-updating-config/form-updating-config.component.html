@@ -1,0 +1,258 @@
+<div class="content l-12">
+  <ul class="l-12 breadcrumb" style="padding: 10px">
+    <li class="breadcrumb-item">
+      <a [routerLink]="'/admin/supplier'">Danh sách cấu hình</a>
+    </li>
+    <li class="breadcrumb-item"><a>Chỉnh sữả cấu hình</a></li>
+  </ul>
+  <div class="content__heading">
+    <h2>Mẫu sửa cấu hình</h2>
+  </div>
+  <div class="content__main">
+    <div class="row">
+      <div class="l-12">
+        <form [formGroup]="config" style="padding: 20px 60px">
+          <label for="name">Mã cấu hình:</label>
+          <input
+            id="name"
+            type="text"
+            formControlName="nameConfig"
+            placeholder="Nhập tên tài khoản"
+          />
+          <span
+            class="error-message"
+            *ngIf="f['nameConfig'].invalid && (f['nameConfig'].dirty || f['nameConfig'].touched)"
+          >
+            <span *ngIf="f['nameConfig'].errors">
+              <span *ngIf="f['nameConfig'].errors['required']"
+                >Trường này cần nhập</span
+              >
+            </span>
+          </span>
+
+          <label for="name">Ram:</label>
+          <input
+            id="name"
+            type="text"
+            formControlName="ram"
+            placeholder="Nhập tên tài khoản"
+          />
+          <span
+            class="error-message"
+            *ngIf="f['ram'].invalid && (f['ram'].dirty || f['ram'].touched)"
+          >
+            <span *ngIf="f['ram'].errors">
+              <span *ngIf="f['ram'].errors['required']"
+                >Trường này cần nhập</span
+              >
+            </span>
+          </span>
+
+          <label for="name">Cpu:</label>
+          <input
+            id="name"
+            type="text"
+            formControlName="cpu"
+            placeholder="Nhập tên tài khoản"
+          />
+          <span
+            class="error-message"
+            *ngIf="f['cpu'].invalid && (f['cpu'].dirty || f['cpu'].touched)"
+          >
+            <span *ngIf="f['cpu'].errors">
+              <span *ngIf="f['cpu'].errors['required']"
+                >Trường này cần nhập</span
+              >
+            </span>
+          </span>
+
+          <label for="address">Kích thước màng hình:</label>
+          <input
+            id="name"
+            type="text"
+            formControlName="displaySize"
+            placeholder="Nhập tên tài khoản"
+          />
+          <span
+            class="error-message"
+            *ngIf="f['displaySize'].invalid && (f['displaySize'].dirty || f['displaySize'].touched)"
+          >
+            <span *ngIf="f['displaySize'].errors">
+              <span *ngIf="f['displaySize'].errors['required']"
+                >Trường này cần nhập</span
+              >
+            </span>
+          </span>
+
+          <label for="address">Card đồ hoạ:</label>
+          <input
+            id="name"
+            type="text"
+            formControlName="graphicCard"
+            placeholder="Nhập tên tài khoản"
+          />
+          <span
+            class="error-message"
+            *ngIf="f['graphicCard'].invalid && (f['graphicCard'].dirty || f['graphicCard'].touched)"
+          >
+            <span *ngIf="f['graphicCard'].errors">
+              <span *ngIf="f['graphicCard'].errors['required']"
+                >Trường này cần nhập</span
+              >
+            </span>
+          </span>
+
+          <label for="address">Hệ điều hành:</label>
+          <input
+            id="name"
+            type="text"
+            formControlName="operatingSystem"
+            placeholder="Nhập tên tài khoản"
+          />
+          <span
+            class="error-message"
+            *ngIf="f['operatingSystem'].invalid && (f['operatingSystem'].dirty || f['operatingSystem'].touched)"
+          >
+            <span *ngIf="f['operatingSystem'].errors">
+              <span *ngIf="f['operatingSystem'].errors['required']"
+                >Trường này cần nhập</span
+              >
+            </span>
+          </span>
+
+          <label for="address">Trọng lượng:</label>
+          <input
+            id="name"
+            type="text"
+            formControlName="weight"
+            placeholder="Nhập tên tài khoản"
+          />
+          <span
+            class="error-message"
+            *ngIf="f['weight'].invalid && (f['weight'].dirty || f['weight'].touched)"
+          >
+            <span *ngIf="f['weight'].errors">
+              <span *ngIf="f['weight'].errors['required']"
+                >Trường này cần nhập</span
+              >
+            </span>
+          </span>
+
+          <label for="address">Lắp ráp tại:</label>
+          <input
+            id="name"
+            type="text"
+            formControlName="madeIn"
+            placeholder="Nhập tên tài khoản"
+          />
+          <span
+            class="error-message"
+            *ngIf="f['madeIn'].invalid && (f['madeIn'].dirty || f['madeIn'].touched)"
+          >
+            <span *ngIf="f['madeIn'].errors">
+              <span *ngIf="f['madeIn'].errors['required']"
+                >Trường này cần nhập</span
+              >
+            </span>
+          </span>
+
+          <label for="address">Ổ cứng:</label>
+          <input
+            id="name"
+            type="text"
+            formControlName="hardDrive"
+            placeholder="Nhập tên tài khoản"
+          />
+          <span
+            class="error-message"
+            *ngIf="f['hardDrive'].invalid && (f['hardDrive'].dirty || f['hardDrive'].touched)"
+          >
+            <span *ngIf="f['hardDrive'].errors">
+              <span *ngIf="f['hardDrive'].errors['required']"
+                >Trường này cần nhập</span
+              >
+            </span>
+          </span>
+          <label for="address">Năm sản xuất:</label>
+          <input
+            id="name"
+            type="text"
+            formControlName="madeYear"
+            placeholder="Nhập tên tài khoản"
+          />
+          <span
+            class="error-message"
+            *ngIf="f['madeYear'].invalid && (f['madeYear'].dirty || f['madeYear'].touched)"
+          >
+            <span *ngIf="f['madeYear'].errors">
+              <span *ngIf="f['madeYear'].errors['required']"
+                >Trường này cần nhập</span
+              >
+            </span>
+          </span>
+          <label for="address">kích thước:</label>
+          <input
+            id="name"
+            type="text"
+            formControlName="size"
+            placeholder="Nhập tên tài khoản"
+          />
+          <span
+            class="error-message"
+            *ngIf="f['size'].invalid && (f['size'].dirty || f['size'].touched)"
+          >
+            <span *ngIf="f['size'].errors">
+              <span *ngIf="f['size'].errors['required']"
+                >Trường này cần nhập</span
+              >
+            </span>
+          </span>
+
+          
+          <button
+            [disabled]="!(config.valid)"
+            [className]="
+              !(config.valid)
+                ? 'form-group-btn-disabled'
+                : 'form-group-btn'
+            "
+            [appModal]="'notification'"
+            [positionClose]="0"
+            [widthSize]="'20%'"
+          >
+            Xác nhận
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <ng-template #context> Chắc chắn bạn muốn tạo nhà cung cấp này không? </ng-template>
+
+  <ng-template #notify>
+    <app-notification
+      (checked)="checked($event, null, '')"
+      [template]="context"
+    >
+    </app-notification>
+  </ng-template>
+
+  <app-modal [idModal]="'notification'" [template]="notify"> </app-modal>
+
+  <ng-container
+    *ngIf="message"
+    [appModal]="'message'"
+    [positionClose]="1"
+    [widthSize]="'20%'"
+    [openModal]="true"
+  >
+    <ng-template #success>
+      {{ message }}
+    </ng-template>
+
+    <app-modal
+      [idModal]="'message'"
+      [template]="success"
+    ></app-modal>
+  </ng-container>
+</div>

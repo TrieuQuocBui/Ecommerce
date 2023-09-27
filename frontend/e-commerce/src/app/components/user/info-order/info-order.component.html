@@ -1,0 +1,128 @@
+<div class="row r-m">
+  <div class="col l-12">
+    <h1 class="title_order"></h1>
+    <div class="order">
+      <form [formGroup]="inforOrder" class="form" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label class="form-group-label" for="username">Tỉnh:</label>
+          <select
+            class="form-group-input"
+            formControlName="province"
+            (change)="changeProvince($event)"
+          >
+            
+            <option
+              *ngFor="let province of provinces"
+              [ngValue]="province"
+              
+            >
+            {{province.province_name}}
+            </option>
+          </select>
+          <span
+          class="form-group-error"
+          
+        >
+          <span *ngIf="f['province'].errors && isSubmitted">
+            <span *ngIf="f['province'].errors['required']"
+              >Trường này cần nhập</span
+            >
+          </span>
+        </span>
+        </div>
+
+        <div class="form-group">
+          <label class="form-group-label" for="username">Quận/huyện:</label>
+          <select
+            class="form-group-input"
+            formControlName="district"
+            (change)="changeCity($event)"
+          >
+            
+            <option
+              *ngFor="let district of districts"
+              [ngValue]="district"
+            >
+              {{ district.district_name }}
+            </option>
+          </select>
+          <span
+          class="form-group-error"
+          
+        >
+          <span *ngIf="f['district'].errors && isSubmitted">
+            <span *ngIf="f['district'].errors['required']"
+              >Trường này cần nhập</span
+            >
+          </span>
+        </span>
+        </div>
+
+        <div class="form-group">
+          <label class="form-group-label" for="username">Phường/xã:</label>
+          <select
+            class="form-group-input"
+            formControlName="ward"
+            (change)="changeWard($event)"
+          >
+            
+            <option
+              *ngFor="let ward of wards"
+              [ngValue]="ward"
+            >
+              {{ ward.ward_name }}
+            </option>
+          </select>
+          <span
+          class="form-group-error"
+          
+        >
+          <span *ngIf="f['ward'].errors && isSubmitted">
+            <span *ngIf="f['ward'].errors['required']"
+              >Trường này cần nhập</span
+            >
+          </span>
+        </span>
+        </div>
+
+        <div class="form-group">
+          <label class="form-group-label" for="username">Số nhà:</label>
+          <input
+          id="username"
+          class="form-group-input"
+          formControlName="addressHome"
+          placeholder="Nhập số nhà"
+        />
+        <span
+          class="form-group-error"
+        >
+          <span *ngIf="f['addressHome'].errors && isSubmitted">
+            <span *ngIf="f['addressHome'].errors['required']"
+              >Trường này cần nhập</span
+            >
+          </span>
+        </span>
+        </div>
+
+        <div class="form-group">
+          <label class="form-group-label" for="username">Ghi chú:</label>
+          <textarea formControlName="note">
+
+          </textarea>
+        </div>
+
+        <div class="form-group">
+          <button
+            type="submit"
+            [disabled]="!inforOrder.valid"
+          [className]="
+            !inforOrder.valid ? 'form-group-btn-disabled' : 'form-group-btn'
+          "
+          >
+            Xác nhận
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,28 @@
+.product-list-pagination {
+    margin-top: 10px;
+}
+
+.pagination{
+    font-size: 1.6rem;
+    display: flex;
+    justify-content: end;
+}
+
+.pagination__item{
+    cursor: pointer;
+    color: #ffffff;
+    background-color: #776BCC;
+    padding: 12px;
+}
+
+.pagination__item:hover{
+    background-color: #463d8370;
+}
+
+.pagination__item.active{
+    background-color: #463d8370;
+}
+
+.pagination__item.disactive{
+    background-color: #9590bb70;
+}

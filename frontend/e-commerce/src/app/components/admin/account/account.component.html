@@ -1,0 +1,150 @@
+<div class="content l-12">
+  <div class="content__heading">
+    <h2>Danh sách hãng sản xuất</h2>
+  </div>
+  <div class="content__main">
+    <div class="content__main__heading">
+
+      <form class="form" action="">
+        <div class="form__group" style="flex-direction: row">
+          <input
+            class="form__group__input"
+            style="margin-top: 0; width: 300px"
+            type="search"
+            placeholder="Tìm kiếm..."
+          />
+          <button type="submit" class="form__group__submit">
+            <fa-icon
+              class="form__group__icon"
+              [icon]="iconSearch"
+              class="icon"
+            ></fa-icon>
+          </button>
+        </div>
+      </form>
+    </div>
+    <div class="content__main__list">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Hình ảnh</th>
+            <th>Tên tài khoản</th>
+            <th>Trạng thái</th>
+            <th>Thao tác</th>
+          </tr>
+        </thead>
+        <tbody class="listTodo">
+          <ng-container *ngFor="let item of customerAccountList; let i = index">
+            <tr>
+              <td>
+                <img class="img" [src]="ImageUrl + item.user?.image" alt="" />
+              </td>
+              <td>{{ item.username }}</td>
+              <td>{{ item.status ? "hoạt động" : "bị khoá" }}</td>
+              <td>
+                <div class="operation">
+                  <button class="btn-info" title="Thông tin" [appModal]="item.username + 'info'"
+                  [positionClose]="i"
+                  [widthSize]="'40%'">
+                    <fa-icon [icon]="iconInfo" class="icon"></fa-icon>
+                  </button >
+                  <ng-template #content>
+                    <h2>Thông tin người dùng</h2>
+                    <p><span class="info-label">Họ:</span> <span id="lastName">{{item.user?.lastName}}</span></p>
+                    <p><span class="info-label">Tên:</span> <span id="firstName">{{item.user?.firstName}}</span></p>
+                    <p><span class="info-label">Ngày sinh:</span> <span id="birthday">{{item.user?.birthDay}}</span></p>
+                    <p><span class="info-label">Số điện thoại:</span> <span id="phoneNumber">{{item.user?.phoneNumber}}</span></p>
+                  </ng-template>
+                
+                  <app-modal
+                    [idModal]="item.username + 'info'"
+                    [template]="content"
+                  ></app-modal>
+                 
+                  <ng-container *ngIf="!item.status">
+                    <button class="btn-info" title="Mở hoạt động" [appModal]="item.username + ''"
+                    [positionClose]="i"
+                    [widthSize]="'20%'">
+                      <fa-icon  [icon]="iconInfo" class="icon"></fa-icon>
+                    </button>
+                    <ng-template #content>
+                      Chắc chắn bạn muốn mở hoạt động của tài khoản này không?
+                    </ng-template>
+                    <ng-template #notify>
+                      <app-notification
+                        (checked)="checked($event, item, 'acctive')"
+                        [template]="content"
+                      ></app-notification>
+                    </ng-template>
+  
+                    <app-modal
+                      [idModal]="item.username + ''"
+                      [template]="notify"
+                    ></app-modal>
+                  </ng-container>
+
+                  <ng-container *ngIf="item.status">
+                    <button  class="btn-remove" title="Đóng hoạt động" 
+                    [appModal]="item.username + ''"
+                    [positionClose]="i"
+                    [widthSize]="'20%'">
+                      <fa-icon [icon]="iconDelete" class="icon"></fa-icon>
+                    </button>
+                    <ng-template #content>
+                      Chắc chắn bạn muốn tắt hoạt động của tài khoản này không?
+                    </ng-template>
+                    <ng-template #notify>
+                      <app-notification
+                        (checked)="checked($event, item, 'inacctive')"
+                        [template]="content"
+                      ></app-notification>
+                    </ng-template>
+  
+                    <app-modal
+                      [idModal]="item.username + ''"
+                      [template]="notify"
+                    ></app-modal>
+                  </ng-container>
+                </div>
+              </td>
+            </tr>
+          </ng-container>
+        </tbody>
+      </table>
+    </div>
+    <div class="content__main__pagination">
+      <!-- <ul class="pagination">
+             <li class="pagination__item active">1</li>
+             <li class="pagination__item">2</li>
+             <li class="pagination__item">3</li>
+             <li class="pagination__item">...</li>
+             <li class="pagination__item">7</li>
+             <li class="pagination__item">8</li>
+             <li class="pagination__item">9</li>
+         </ul> -->
+      <app-pagination
+        [currentPage]="currentPage!"
+        [totalPages]="totalPages"
+        [pageSize]="itemsPerPage"
+        (goToPage)="onPageChange($event)"
+      >
+      </app-pagination>
+    </div>
+  </div>
+  
+  <ng-container *ngIf="message != undefined"  
+  [appModal]="'notification'"
+  [positionClose]="1"
+  [widthSize]="'20%'"
+  [openModal]="true">
+    <ng-template #a>
+      {{message}}
+    </ng-template>
+
+    <app-modal
+    [idModal]="'notification'"
+    [template]="a"
+  ></app-modal>
+  </ng-container>
+  
+</div>

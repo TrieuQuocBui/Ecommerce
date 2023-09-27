@@ -1,0 +1,126 @@
+<div class="content l-12">
+  <ul class="l-12 breadcrumb" style="padding: 10px">
+    <li class="breadcrumb-item">
+      <a [routerLink]="'/admin/supplier'">Danh sách nhà cung cấp</a>
+    </li>
+    <li class="breadcrumb-item"><a>tạo nhà cung cấp</a></li>
+  </ul>
+  <div class="content__heading">
+    <h2>Mẫu tạo nhà cung cấp</h2>
+  </div>
+  <div class="content__main">
+    <div class="row">
+      <div class="l-12">
+        <form [formGroup]="supplier" style="padding: 20px 60px">
+          
+
+          <label for="name">Tên công ty:</label>
+          <input
+            id="name"
+            type="text"
+            formControlName="name"
+            placeholder="Nhập tên tài khoản"
+          />
+          <span
+            class="error-message"
+            *ngIf="f['name'].invalid && (f['name'].dirty || f['name'].touched)"
+          >
+            <span *ngIf="f['name'].errors">
+              <span *ngIf="f['name'].errors['required']"
+                >Trường này cần nhập</span
+              >
+            </span>
+          </span>
+
+          <label for="name">Số điện thoại:</label>
+          <input
+            id="name"
+            type="text"
+            formControlName="sdt"
+            placeholder="Nhập tên tài khoản"
+          />
+          <span
+            class="error-message"
+            *ngIf="f['sdt'].invalid && (f['sdt'].dirty || f['sdt'].touched)"
+          >
+            <span *ngIf="f['sdt'].errors">
+              <span *ngIf="f['sdt'].errors['required']"
+                >Trường này cần nhập</span
+              >
+            </span>
+          </span>
+
+          <label for="address">Địa chỉ:</label>
+          <input
+            id="name"
+            type="text"
+            formControlName="address"
+            placeholder="Nhập tên tài khoản"
+          />
+          <span
+            class="error-message"
+            *ngIf="f['address'].invalid && (f['address'].dirty || f['address'].touched)"
+          >
+            <span *ngIf="f['address'].errors">
+              <span *ngIf="f['address'].errors['required']"
+                >Trường này cần nhập</span
+              >
+            </span>
+          </span>
+
+          <label for="status">Kích hoạt:</label>
+          
+          <input
+            type="checkbox"
+            id="status"
+            name="status"
+            formControlName="status"
+            [checked]="f['status'].value"
+          />
+          <button
+            [disabled]="!(supplier.valid)"
+            [className]="
+              !(supplier.valid)
+                ? 'form-group-btn-disabled'
+                : 'form-group-btn'
+            "
+            [appModal]="'notification'"
+            [positionClose]="0"
+            [widthSize]="'20%'"
+          >
+            Xác nhận
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <ng-template #context> Chắc chắn bạn muốn chỉnh sửa nhà cung cấp này không? </ng-template>
+
+  <ng-template #notify>
+    <app-notification
+      (checked)="checked($event, null, '')"
+      [template]="context"
+    >
+    </app-notification>
+  </ng-template>
+
+  <app-modal [idModal]="'notification'" [template]="notify"> </app-modal>
+
+  <ng-container
+    *ngIf="message"
+    [appModal]="'message'"
+    [positionClose]="1"
+    [widthSize]="'20%'"
+    [openModal]="true"
+  >
+    <ng-template #success>
+      {{ message }}
+    </ng-template>
+
+    <app-modal
+      [idModal]="'message'"
+      [template]="success"
+    ></app-modal>
+  </ng-container>
+</div>

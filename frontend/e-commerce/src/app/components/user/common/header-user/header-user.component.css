@@ -1,0 +1,128 @@
+.header {
+    z-index: 100;
+    position: fixed;
+    display: flex;
+    left: 0;
+    top: 0;
+    width: 100%;
+    background-color: #776BCC;
+}
+
+.header-logo{
+
+}
+
+.header-logo a{
+    
+}
+
+.header-logo a img{
+    height: 40px;
+    width: 60px;
+    border-radius: 10px;
+}
+
+
+.header-search{
+    display: flex;
+    align-items: center;
+}
+
+.header-search input[type=search]{
+    flex: 1;
+    height: 60%;
+    border: none;
+    padding: 6px;
+    border-bottom-left-radius: 3px;
+    border-top-left-radius: 3px;
+}
+
+.header-search button{
+    height: 60%;
+    border: none;
+    cursor: pointer;
+    border-bottom-right-radius: 3px;
+    border-top-right-radius: 3px;
+}
+
+.header-search button:hover{
+    background: #ccc;
+}
+
+.header-nav{
+    
+}
+
+.header-nav ul{
+    float: right;
+}
+
+.header-nav ul li{
+    display: inline-block;
+    padding: 10px 0px;
+}
+
+.header-nav ul li a{
+    display: block;
+    font-size: 1.6rem;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #fff;
+    text-align: center;
+    border-radius: 3px;
+}
+
+.header-nav ul li a:hover{
+    background-color: #463d8370;
+}
+
+.active{
+    background-color: #463d8370;
+}
+
+.header-nav-item:last-child{
+    position: relative;
+}
+
+.header-nav-item:last-child:hover .menu-login{
+    display: block;
+}
+
+.menu-login{
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    top: 130%;
+    right: 0px;
+    width: 100px;
+}
+
+.menu-login::after{
+    display: block;
+    position: absolute;
+    content: "";
+    left: 64px;
+    top: -10px;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #fff;
+}
+
+.menu-login .menu-login-item{
+
+}
+
+.menu-login .menu-login-item button{
+    color: #776BCC;
+    background-color: #fff;
+    border: none;
+    font-size: 1.6rem;
+    padding: 6px;
+    width: 100%;
+    text-align: start;
+}
+
+.menu-login .menu-login-item button:hover{
+    background-color: #463d8370;
+    color: #fff;
+}

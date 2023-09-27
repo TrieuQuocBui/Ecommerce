@@ -1,0 +1,40 @@
+<div class="l-12 ">
+  <div class="row header">
+          <div class="l-6">
+              <ul class="header__nav">
+                  <li class="header__item">
+                      <a href="#" class="header__item__link active">Tin tức</a>
+                  </li>
+                  <li class="header__item">
+                      <a href="#" class="header__item__link">Liên hệ</a>
+                  </li>
+                  <li class="header__item">
+                      <a href="#" class="header__item__link">Hỗ trợ</a>
+                  </li>
+              </ul>
+          </div>
+          <div class="l-6">
+              <ul class="header__nav--right">
+                  <li class="header__item--right">
+                      <div href="" class="header__item__link--right">
+                          <div class="header__imgOfUser">
+                              <img [src]="'assets/imgs/user_default.png'" alt="">
+                              <ul class="header__customOfUser">
+                               
+                                    <li class="header__customOfUser__item">
+                                        <a routerLink="profile" class="header__customOfUser__item__link">Hồ sơ</a>
+                                    </li>
+                                    <li class="header__customOfUser__item">
+                                        <a (click)="onLogout()" class="header__customOfUser__item__link">Thoát</a>
+                                    </li>
+                                
+                              </ul>
+                          </div>
+                          
+                      </div>
+                  </li>
+              </ul>
+              
+          </div>
+  </div>
+</div>

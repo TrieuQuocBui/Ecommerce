@@ -1,0 +1,30 @@
+.footer{
+    border-top: 0.5px solid #dee2e6;
+    border-bottom: 0.5px solid #dee2e6;
+    display: flex;
+    font-size: 1.6rem;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+    height: 40px;
+    color: #869099;
+    
+}
+
+.footer__infor{
+    font-weight: 700;
+    padding: 0 10px;
+    
+}
+
+.footer__infor__name{
+    color: #007bff;
+    font-weight:normal;
+}
+.footer__version{
+    padding: 0 10px;
+    font-weight: 700;
+}
+.footer__version__number{
+    font-weight:normal;
+}

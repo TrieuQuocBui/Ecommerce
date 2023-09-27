@@ -1,0 +1,60 @@
+<div class="sidebar">
+  <div class="sidebar__logo">
+      <a [routerLink]="'home'" class="sidebar__logo__link">
+          <img [src]="'assets/imgs/AdminLTELogo.png'" alt="logo" class="sidebar__logo__img">
+          <span class="sidebar__logo__name">Phần mềm quản lí</span>
+      </a>
+  </div>
+  <div class="sidebar__main">
+      <ul class="sidebar__main__menu">
+          <li class="sidebar__main__item" routerLinkActive="active">
+              <a [routerLink]="'account'" class="sidebar__main__item__link">
+                <fa-icon [icon]="iCon" class="icon"></fa-icon>
+                  Quản lí tài khoản
+              </a>
+          </li>
+          <li class="sidebar__main__item" routerLinkActive="active">
+              <a [routerLink]="'brand'" class="sidebar__main__item__link">
+                <fa-icon [icon]="iCon" class="icon"></fa-icon>
+                  Quản lí hãng
+              </a>
+          </li>
+          <li class="sidebar__main__item" routerLinkActive="active">
+              <a [routerLink]="'config'" class="sidebar__main__item__link">
+                  <fa-icon [icon]="iCon" class="icon"></fa-icon>
+                  Quản lí cấu hình
+              </a>
+          </li>
+          <li class="sidebar__main__item" routerLinkActive="active">
+              <a [routerLink]="'product'" class="sidebar__main__item__link">
+                  <fa-icon [icon]="iCon" class="icon"></fa-icon>
+                  Quản lí sản phẩm
+              </a>
+          </li>
+          <li class="sidebar__main__item" routerLinkActive="active">
+            <a [routerLink]="'supplier'" class="sidebar__main__item__link">
+                <fa-icon [icon]="iCon" class="icon"></fa-icon>
+                Quản lí nhà cung cấp
+            </a>
+        </li>
+        <li class="sidebar__main__item" routerLinkActive="active">
+            <a [routerLink]="'order'" class="sidebar__main__item__link">
+                <fa-icon [icon]="iCon" class="icon"></fa-icon>
+                Quản lí đơn đặt hàng
+            </a>
+        </li>
+        <li class="sidebar__main__item" routerLinkActive="active">
+            <a [routerLink]="'receipt'" class="sidebar__main__item__link">
+                <fa-icon [icon]="iCon" class="icon"></fa-icon>
+                Quản lí đơn nhập hàng
+            </a>
+        </li>
+          <li class="sidebar__main__item" routerLinkActive="active">
+              <a [routerLink]="'statistics'" class="sidebar__main__item__link">
+                  <fa-icon [icon]="iCon" class="icon"></fa-icon>
+                  Thống kê
+              </a>
+          </li>
+      </ul>
+  </div>
+</div>

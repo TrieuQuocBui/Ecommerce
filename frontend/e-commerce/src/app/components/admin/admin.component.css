@@ -1,0 +1,84 @@
+/*set element max width*/
+.grid{
+    width: 100%;
+    display: block;
+    padding: 0;
+}
+
+/* limit width element and center block */
+.grid.wide{
+    max-width: 1200px;
+    margin: 0 auto; 
+}
+
+/* full with */
+.grid.wide-full{
+    max-width: 100%;
+}
+
+/* note: when write code for gutters, rows will write code magin (-) and columns will write code padding (+) , for compensate each other */
+
+/* when elements over limit of width will wrap and */
+.row{
+    display: flex;
+    flex-wrap: wrap;
+    /* magin left and right for gutters*/
+    margin: 0;
+
+}
+
+.col{
+    /* padding left and right for gutters*/
+    padding: 0;
+}
+
+/* The suffix (c- , m- , l-) + number (0 - 12) follows the col */
+/* 0 default is none and others is 12 % number col equal the col needs to use in layout 12 col*/
+
+.l-0{
+    display: none;
+}
+
+.l-12{
+    flex: 0 0 100%; /* flex-basic use set width(row) or(col) height in case flex-direction: row or col.  Note take five number then ,*/
+    max-width: 100%; /* litmit width of element*/
+}
+
+.l-6{
+    flex: 0 0 50.00000%;
+    max-width: 50.00000%;
+}
+
+.l-2{
+    flex: 0 0 16.66667%;
+    max-width: 16.66667%;
+}
+
+.l-10{
+    flex: 0 0 83.33333%;
+    max-width: 83.33333%;
+}
+
+.l-0-2{
+    margin-left: 16.66667%;
+}
+
+.flex{
+    display: flex;
+}
+
+.fixed{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.mt-0{
+    margin-top: 0px;
+}
+
+
+
+

@@ -1,0 +1,256 @@
+
+
+.product-list {
+  background-color: #fff;
+  border-radius: 6px;
+  display: flex;
+  margin-left: -6px;
+  margin-right: -6px;
+  flex-wrap: wrap;
+}
+
+.product-list-item {
+  position: relative;
+  transition: all 0.3s;
+}
+
+.product-list-item:hover::before {
+  display: inline;
+}
+
+.product-list-item::before {
+  display: none;
+  z-index: 1;
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: 6px;
+  border: solid 1px #dee2e6;
+  box-shadow: 0 0 2px 0 #dee2e6;
+  transition: all 0.1s;
+}
+
+.item-img,
+.item-name,
+.item-cost,
+.item-btn,
+.item-config {
+  z-index: 1;
+  position: inherit;
+}
+
+.item-img {
+}
+
+.item-img a {
+  cursor: pointer;
+}
+
+.item-img a img {
+  width: 100%;
+}
+
+.item-name {
+}
+
+.item-name a {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #474c51;
+  text-decoration: none;
+}
+
+.item-name a:hover {
+  color: rgb(35, 35, 200);
+}
+
+.item-cost {
+  margin: 10px 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.item-cost-reduce {
+  min-width: 110px;
+  display: flex;
+  font-size: 1.6rem;
+  color: #fff;
+  background-color: #7a76b7;
+  height: 30px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+}
+
+.item-cost-price {
+  font-size: 1.6rem;
+  display: flex;
+  color: #919191;
+  justify-content: center;
+  align-items: center;
+  text-decoration: line-through;
+}
+
+.item-btn {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.btn-buy {
+  padding: 5px 0;
+  font-size: 1.6rem;
+  cursor: pointer;
+  width: 62%;
+  border: none;
+  color: #fff;
+  background-color: #7a76b7;
+  border-radius: 6px;
+}
+
+.btn-buy:hover {
+  background-color: #463d8370;
+}
+
+.btn-compare {
+  padding: 10px 0;
+  font-size: 1.6rem;
+  width: 34%;
+  cursor: pointer;
+  border: none;
+  color: #fff;
+  background-color: #99a2aa;
+  border-radius: 6px;
+}
+
+.btn-compare:hover {
+  background-color: #6c757d;
+}
+
+.product-list-pagination {
+  margin-top: 10px;
+}
+
+.brand-list {
+  width: inherit;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.brand-list ul {
+  background-color: #7a76b7;
+}
+
+.brand-list ul li {
+  margin: 10px 0;
+  
+}
+
+.brand-list ul li a {
+  align-items: center;
+  border-radius: 34px;
+  background-color: #fff;
+  justify-content: center;
+  display: flex;
+  height: 34px;
+  padding: 0 14px;
+  border: 2px solid #fff;
+
+}
+
+.brand-list ul li a:hover {
+  border: 2px solid #463d8370;
+}
+
+.brand-list ul li a img {
+ 
+  height: 25px;
+  border: 0;
+}
+
+.item-config {
+  font-size: 1.5rem;
+  padding: 10px;
+  font-weight: 400;
+  background-color: #f8f9fa;
+  margin-bottom: 10px;
+  border-radius: 10px;
+}
+.item-config-param {
+}
+
+.item-config .item-config-param span {
+  margin: 0 10px 10px 0;
+  display: inline-block;
+  font-size: 14px;
+  line-height: 19px;
+  color: #6c757d;
+  margin-bottom: 9px;
+  position: relative;
+  cursor: help;
+}
+
+[data-title]:after {
+  display: none;
+  content: attr(data-title);
+  color: #111;
+  position: absolute;
+}
+
+.item-config .item-config-param span[data-title]:hover::after {
+  display: flex;
+  align-items: center;
+  content: attr(data-title);
+  position: absolute;
+  z-index: 1;
+  left: 50%;
+  bottom: calc(100% + 4px);
+  border-color: #333 transparent transparent transparent;
+  background: #333;
+  border-radius: 6px;
+  color: #cecece;
+  white-space: nowrap;
+  padding: 4px 4px;
+  text-align: center;
+}
+
+
+.container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+label {
+  
+}
+input[type="text"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  box-sizing: border-box;
+}
+input[type="checkbox"] {
+  margin-right: 5px;
+  
+}
+
+input[type="range"] {
+  width: 100%;
+  
+}
+button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 3px;
+  cursor: pointer;
+}

@@ -1,0 +1,140 @@
+<div class="content l-12">
+  <div class="content__heading">
+    <h2>Danh sách cấu hình</h2>
+  </div>
+  <div class="content__main">
+    <div class="content__main__heading">
+      <div class="content__main__add">
+        <span>Thêm cấu hình:</span>
+        <button
+          class="content__main__add__btn"
+          (click)="redirectPage('/admin/config/adding')"
+          title="Thêm mới"
+        >
+          <fa-icon
+            class="form__group__icon"
+            [icon]="iCon"
+            class="icon"
+          ></fa-icon>
+        </button>
+      </div>
+      <form class="form" action="">
+        <div class="form__group" style="flex-direction: row">
+          <input
+            class="form__group__input"
+            style="margin-top: 0; width: 300px"
+            type="search"
+            placeholder="Tìm kiếm..."
+          />
+          <button type="submit" class="form__group__submit">
+            <fa-icon
+              class="form__group__icon"
+              [icon]="iconSearch"
+              class="icon"
+            ></fa-icon>
+          </button>
+        </div>
+      </form>
+    </div>
+    <div class="content__main__list" >
+      <table class="table" >
+        <thead>
+          <tr>
+            <th>Mã cấu hình</th>
+            <th>Ram</th>
+            <th>CPU</th>
+            <th>Kích thước màng hình</th>
+            <th>Hệ điều hành</th>
+            <th>Thao tác</th>
+          </tr>
+        </thead>
+        <tbody class="listTodo" >
+          <ng-container *ngFor="let item of configList; let i = index">
+            <tr>
+              <td>{{ item.nameConfig }}</td>
+              <td>{{ item.ram }}</td>
+              <td>{{ item.cpu }}</td>
+              <td>{{ item.displaySize }}</td>
+              <td>{{ item.operatingSystem}}</td>
+              <td>
+                <div class="operation">
+                  
+                    <button class="btn-info" title="Thông tin" 
+                    [appModal]="item.id + 'info'"
+                    [positionClose]="i"
+                    [widthSize]="'40%'">
+                      <fa-icon [icon]="iconInfo" class="icon"></fa-icon>
+                    </button>
+
+                    <ng-template #detailsConfig>
+                      <h2>Thông tin chi tiết cấu hình</h2>
+                      <p><span class="info-label">Mã cấu hình: </span> <span id="lastName">{{item.size}}</span></p>
+                      <p><span class="info-label">Kích thước máy: </span> <span id="lastName">{{item.size}}</span></p>
+                      <p><span class="info-label">Ram: </span> <span id="lastName">{{item.ram}}</span></p>
+                      <p><span class="info-label">Cpu: </span> <span id="lastName">{{item.cpu}}</span></p>
+                      <p><span class="info-label">Kích thước màng hình: </span> <span id="lastName">{{item.displaySize}}</span></p>
+                      <p><span class="info-label">Card đồ hoạ: </span> <span id="lastName">{{item.graphicCard}}</span></p>
+                      <p><span class="info-label">Hệ điều hành: </span> <span id="lastName">{{item.operatingSystem}}</span></p>
+                      <p><span class="info-label">Trọng lượng: </span> <span id="lastName">{{item.weight}}</span></p>
+                      <p><span class="info-label">Lắp ráp tại: </span> <span id="lastName">{{item.madeIn}}</span></p>
+                      <p><span class="info-label">Ổ cứng: </span> <span id="lastName">{{item.hardDrive}}</span></p>
+                      <p><span class="info-label">Năm sản  xuất: </span> <span id="lastName">{{item.madeYear}}</span></p>
+                    </ng-template>
+                  
+                    <app-modal
+                      [idModal]="item.id + 'info'"
+                      [template]="detailsConfig"
+                    ></app-modal>
+                  
+                  <button class="btn-update" title="Cập nhật" (click)="redirectPage('admin/config/updating/' + item.id)">
+                    <fa-icon [icon]="iconUpdate" class="icon"></fa-icon>
+                  </button>
+                  <ng-container *ngIf="item?.products?.length == 0">
+                    <button class="btn-remove" title="Xoá" 
+                  [appModal]="item.id + ''"
+                  [positionClose]="i"
+                  [widthSize]="'20%'">
+                    <fa-icon [icon]="iconDelete" class="icon"></fa-icon>
+                  </button>
+                  <ng-template #content>
+                    Chắc chắn bạn xoá cấu hình này không?
+                  </ng-template>
+                  <ng-template #notify>
+                    <app-notification
+                      (checked)="checked($event, item, '')"
+                      [template]="content"
+                    ></app-notification>
+                  </ng-template>
+
+                  <app-modal
+                    [idModal]="item.id + ''"
+                    [template]="notify"
+                  ></app-modal>
+                  </ng-container>
+
+
+                </div>
+              </td>
+            </tr>
+          </ng-container>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
+  <ng-container *ngIf="message != undefined"  
+  [appModal]="'notification'"
+  [positionClose]="1"
+  [widthSize]="'20%'"
+  [openModal]="true">
+    <ng-template #a>
+      {{message}}
+    </ng-template>
+
+    <app-modal
+    [idModal]="'notification'"
+    [template]="a"
+  ></app-modal>
+  </ng-container>
+  
+</div>

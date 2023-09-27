@@ -1,0 +1,54 @@
+<div class="content l-12">
+  <div class="content__heading">
+    <h2>Danh sách đơn đặt hàng</h2>
+  </div>
+  <div class="content__main">
+    <div class="content__main__heading">
+      <div class="content__main__add">
+        <span>Chuyên đổi đơn:</span>
+        <div class="content__main__add__btn" routerLinkActive="active" [routerLink]="'/admin/order/not-approve-yet'">
+          <h4 class="">Đơn hàng chưa duyệt</h4>
+        </div>
+        <div class="content__main__add__btn" routerLinkActive="active" [routerLink]="'/admin/order/disapprove'">
+          <h4 class="">Đơn hàng từ chối</h4>
+        </div>
+        <div class="content__main__add__btn" routerLinkActive="active" [routerLink]="'/admin/order/approve'">
+          <h4 class="">Đơn hàng đã duyệt</h4>
+        </div>
+
+      </div>
+      <form class="form" action="">
+        <div class="form__group" style="flex-direction: row">
+          <input
+            class="form__group__input"
+            style="margin-top: 0; width: 300px"
+            type="search"
+            placeholder="Tìm kiếm..."
+          />
+          <button type="submit" class="form__group__submit">
+            <fa-icon
+              class="form__group__icon"
+              [icon]="iconSearch"
+              class="icon"
+            ></fa-icon>
+          </button>
+        </div>
+      </form>
+    </div>
+    <router-outlet></router-outlet>
+  </div>
+
+  <ng-container
+    *ngIf="message != undefined"
+    [appModal]="'notification'"
+    [positionClose]="1"
+    [widthSize]="'20%'"
+    [openModal]="true"
+  >
+    <ng-template #a>
+      {{ message }}
+    </ng-template>
+
+    <app-modal [idModal]="'notification'" [template]="a"></app-modal>
+  </ng-container>
+</div>

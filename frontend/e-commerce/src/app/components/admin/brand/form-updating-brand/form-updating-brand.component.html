@@ -1,0 +1,95 @@
+<div class="content l-12">
+  <ul class="l-12 breadcrumb" style="padding: 10px;">
+    <li class="breadcrumb-item"><a [routerLink]="'/admin/brand'">Danh sách hãng</a></li>
+    <li class="breadcrumb-item"><a>Chỉnh sữa hãng</a></li>
+  </ul>
+  <div class="content__heading">
+    <h2>Mẫu tạo hãng sản xuất</h2>
+  </div>
+  <div class="content__main">
+    <div class="row">
+      <div class="l-2">
+        <img [src]="imageUrl" alt="" class="brand_image">
+      </div>
+      <div class="l-10">
+        <form [formGroup]="brand" style="padding: 20px 60px;">
+          <label for="name">Tên hãng:</label>
+          <input id="name"
+          type="text"
+          formControlName="name"
+          placeholder="Nhập tên tài khoản"
+          (keydown)="onKeydownName($event)">
+          <span
+              class="error-message"
+              *ngIf="
+                f['name'].invalid &&
+                (f['name'].dirty || f['name'].touched)
+              "
+            >
+              <span *ngIf="f['name'].errors">
+                <span *ngIf="f['name'].errors['required']"
+                  >Trường này cần nhập</span
+                >
+              </span>
+            </span>
+    
+            <span
+              class="error-message"
+              *ngIf="messageErrorName"
+            >
+              
+                <span>
+                  {{messageErrorName}}</span
+                >
+              </span>
+    
+          <label for="image">Ảnh đại diện:</label>
+          <input type="file" id="image" name="image"  (change)="onFileChange($event)">
+    
+          <label for="status">Kích hoạt:</label>
+          <input type="checkbox" id="status" name="status" formControlName="status"  [checked]="f['status'].value">
+          
+          <button [disabled]="!f['name'].valid"
+          [className]="
+          !f['name'].valid ? 'form-group-btn-disabled' : 'form-group-btn'
+          "
+          
+          [appModal]="'notification'"
+          [positionClose]="0"
+          [widthSize]="'20%'">Xác nhận</button>
+      </form>
+      </div>
+    </div>
+    
+  </div>
+
+  <ng-template #context>
+    Chắc chắn bạn muốn thay đổi hãng này không?
+  </ng-template>
+
+  <ng-template #notify>
+    <app-notification 
+    (checked)="checked($event,null,'')" [template]="context">
+    </app-notification>
+  </ng-template>
+
+  <app-modal [idModal]="'notification'" [template]="notify">
+  </app-modal>
+
+
+  <ng-container *ngIf="messageSuccess"  
+  [appModal]="'notification-success'"
+  [positionClose]="1"
+  [widthSize]="'20%'"
+  [openModal]="true">
+    <ng-template #success>
+      {{messageSuccess}}
+    </ng-template>
+
+    <app-modal
+    [idModal]="'notification-success'"
+    [template]="success"
+  ></app-modal>
+  </ng-container>
+</div>
+

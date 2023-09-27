@@ -1,0 +1,130 @@
+<div class="row mb-20">
+  <ul class="l-12 breadcrumb">
+    <li class="breadcrumb-item"><a href="">Trang chủ</a></li>
+    <li class="breadcrumb-item"><a>Đặt hàng</a></li>
+  </ul>
+</div>
+
+<div class="row">
+  <div class="l-12">
+   
+
+    <ng-template
+      *ngIf="orderList.length == 0; then empty; else listOrder"
+    ></ng-template>
+
+    <ng-template #empty>
+      <div class="container-empty">
+        <h1>Đơn đặt hàng trống</h1>
+        <p>Đơn đặt hàng hiện tại của bạn đang trống!</p>
+        <a href="/home">Vui lòng xem sản phẩm</a>
+      </div>
+    </ng-template>
+
+    <ng-template #listOrder>
+      <table class="details_cart">
+        <thead>
+          <tr>
+            <th>ID Đơn hàng</th>
+            <th>Ngày đặt</th>
+            <th>Trạng thái</th>
+            <th>Thao tác</th>
+          </tr>
+        </thead>
+        <tbody>
+          <ng-container *ngFor="let order of orderList; let i = index">
+            <ng-template #detailsOrder>
+              <app-details-order [order]="order"></app-details-order>
+            </ng-template>
+
+            <tr>
+              <td>{{ order.id }}</td>
+              <td>{{ order.orderDay | date : "medium" : "vi-VN" }}</td>
+              <td [ngSwitch]="order.status">
+                <ng-container *ngSwitchCase="0">
+                  Đang duyệt đơn hàng
+                </ng-container>
+                <ng-container *ngSwitchCase="1"> Đang đóng gói </ng-container>
+                <ng-container *ngSwitchCase="2"> Đang vận chuyển </ng-container>
+                <ng-container *ngSwitchCase="3"> Đã giao </ng-container>
+                <ng-container *ngSwitchCase="4"> Hoàn thành </ng-container>
+              </td>
+
+              <td>
+                <button
+                  class="button-link mr-10"
+                  [appModal]="order.id! + ''"
+                  [positionClose]="i"
+                  [widthSize]="'80%'"
+                >
+                  Xem chi tiết đơn hàng
+                </button>
+                <ng-container *ngIf="order.status! === 3">
+                  <button
+                    class="button-link mr-10"
+                    href=""
+                    [appModal]="order.id! + 'finish'"
+                    [positionClose]="i"
+                    [widthSize]="'20%'"
+                  >
+                    Xác nhận đã nhận được hàng
+                  </button>
+
+                  <ng-template #content>
+                    Chắc chắn quý khách đã nhận đơn đặt hàng này?
+                  </ng-template>
+
+                  <ng-template #notify>
+                    <app-notification
+                      (checked)="checked($event, order, 'finish')"
+                      [template]="content"
+                    ></app-notification>
+                  </ng-template>
+
+                  <app-modal
+                    [idModal]="order.id! + 'finish'"
+                    [template]="notify"
+                  ></app-modal>
+                </ng-container>
+
+                <ng-container *ngIf="order.status! < 2">
+                  <button
+                    class="button-delete"
+                    
+                    [appModal]="order.id! + 'cancel'"
+                    [positionClose]="i"
+                    [widthSize]="'20%'"
+                  >
+                    Huỷ đơn
+                  </button>
+
+                  <ng-template #content>
+                    chắc chắn quý khách muốn xoá đơn đặt hàng này?
+                  </ng-template>
+
+                  <ng-template #notify>
+                    <app-notification
+                      (checked)="checked($event, order, 'cancel')"
+                      [template]="content"
+                    ></app-notification>
+                  </ng-template>
+
+                  <app-modal
+                    [idModal]="order.id! + 'cancel'"
+                    [template]="notify"
+                  ></app-modal>
+                </ng-container>
+
+                <app-modal
+                  [idModal]="order.id! + ''"
+                  [template]="detailsOrder"
+                ></app-modal>
+              </td>
+            </tr>
+          </ng-container>
+        </tbody>
+      </table>
+    </ng-template>
+    <br />
+  </div>
+</div>

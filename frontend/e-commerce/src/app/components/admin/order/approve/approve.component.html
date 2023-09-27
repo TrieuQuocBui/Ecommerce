@@ -1,0 +1,75 @@
+ <div class="content__main__list">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Mã sản phẩm</th>
+            <th>Hình ảnh</th>
+            <th>Tên sản phẩm</th>
+            <th>Giá</th>
+            <th>Mô tả</th>
+            <th>Trạng thái</th>
+            <th>Thao tác</th>
+          </tr>
+        </thead>
+        <tbody class="listTodo">
+          <ng-container *ngFor="let item of orderList; let i = index">
+            <tr>
+              <td>{{ item }}</td>
+
+              <td>{{ item }}</td>
+              <td>{{ item }}</td>
+              <td>{{ item }}</td>
+
+              <td>
+                <div class="operation">
+                  <button
+                    class="btn-info"
+                    title="Thông tin"
+                    [appModal]="item + 'info'"
+                    [positionClose]="i"
+                    [widthSize]="'40%'"
+                  >
+                    <fa-icon [icon]="iconInfo" class="icon"></fa-icon>
+                  </button>
+
+                  <ng-template #detailsConfig>
+                   
+                  </ng-template>
+
+                  <app-modal
+                    [idModal]="item + 'info'"
+                    [template]="detailsConfig"
+                  ></app-modal>
+
+                  <ng-container *ngIf="true">
+                    <button
+                      class="btn-remove"
+                      title="Xoá"
+                      [appModal]="item + ''"
+                      [positionClose]="i"
+                      [widthSize]="'20%'"
+                    >
+                      <fa-icon [icon]="iconDelete" class="icon"></fa-icon>
+                    </button>
+                    <ng-template #content>
+                      Chắc chắn bạn xoá cấu hình này không?
+                    </ng-template>
+                    <ng-template #notify>
+                      <app-notification
+                        (checked)="checked($event, item, '')"
+                        [template]="content"
+                      ></app-notification>
+                    </ng-template>
+
+                    <app-modal
+                      [idModal]="item + ''"
+                      [template]="notify"
+                    ></app-modal>
+                  </ng-container>
+                </div>
+              </td>
+            </tr>
+          </ng-container>
+        </tbody>
+      </table>
+    </div>

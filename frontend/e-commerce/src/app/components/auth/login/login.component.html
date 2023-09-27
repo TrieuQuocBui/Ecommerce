@@ -1,0 +1,97 @@
+<div class="container">
+  <div class="register">
+    <form [formGroup]="login" class="form" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <h2 class="form-group-title">Đăng nhập</h2>
+      </div>
+      <div class="form-group">
+        <label class="form-group-label" for="username"><fa-icon [icon]="fasuser" class="form-icon"></fa-icon>Tên tài khoản</label>
+        <input
+          id="username"
+          class="form-group-input"
+          type="text"
+          formControlName="username"
+          placeholder="Nhập tên tài khoản"
+          (keydown)="onKeydownUsername($event)"
+          
+        />
+        <span
+          class="form-group-error"
+          *ngIf="
+            f['username'].invalid &&
+            (f['username'].dirty || f['username'].touched)
+          "
+        >
+          <span *ngIf="f['username'].errors">
+            <span *ngIf="f['username'].errors['required']"
+              >Trường này cần nhập</span
+            >
+          </span>
+        </span>
+
+        <span
+          class="form-group-error"
+          *ngIf="messageErrorUsername"
+        >
+          
+            <span>
+              {{messageErrorUsername}}</span
+            >
+          </span>
+       
+      </div>
+      <div class="form-group">
+        <label class="form-group-label" for="password"><fa-icon [icon]="faslock" class="form-icon"></fa-icon>Mật khẩu</label>
+        <input
+          id="password"
+          class="form-group-input"
+          type="password"
+          formControlName="password"
+          (keydown)="onKeydownPassword($event)"
+          placeholder=" Nhập mật khẩu"
+        />
+        
+        <span
+          class="form-group-error"
+          *ngIf="
+            f['password'].invalid &&
+            (f['password'].dirty || f['password'].touched)
+          "
+        >
+          <span *ngIf="f['password'].errors">
+            <span *ngIf="f['password'].errors['required']"
+              >Trường này cần nhập</span
+            >
+          </span>
+        </span>
+
+        <span
+        class="form-group-error"
+        *ngIf="messageErrorPassword"
+      >
+        
+          <span>
+            {{messageErrorPassword}}</span
+          >
+        </span>
+      </div>
+
+      <div class="form-group">
+        <button
+          [disabled]="!login.valid"
+          [className]="
+            !login.valid ? 'form-group-btn-disabled' : 'form-group-btn'
+          "
+          type="submit"
+        >
+          Đăng nhập
+        </button>
+      </div>
+      <div class="form-group">
+        <div class="form-group-link">
+          <a class="form-group-link-login" routerLink="/register">Tôi chưa có tài khoản</a>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

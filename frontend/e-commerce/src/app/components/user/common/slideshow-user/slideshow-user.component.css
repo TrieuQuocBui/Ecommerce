@@ -1,0 +1,37 @@
+.slideshow{
+  overflow: hidden;
+  position: relative;
+}
+.slideshow-list{
+  flex-wrap: nowrap;
+  
+}
+.slideshow-item{
+
+}
+
+.slideshow-link{
+  
+}
+
+.btn-left{
+  margin-left: 10px;
+  position: absolute;
+  transform: translateY(-50%);
+}
+
+.btn-right{
+  margin-right: 10px;
+  position: absolute;
+  right: 0;
+  transform: translateY(-50%);
+}
+
+.left--btn__hover:hover, .right--btn__hover:hover{
+  box-shadow: 0 0 5px 0 rgb(246 94 57 / 50%);
+  color: #f65e39;
+}
+
+.category-item{
+    
+}
