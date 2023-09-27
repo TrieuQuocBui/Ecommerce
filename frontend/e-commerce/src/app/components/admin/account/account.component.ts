@@ -33,6 +33,7 @@ export class AccountComponent implements OnInit {
   constructor(private router:Router,private route:ActivatedRoute,private accountService:AccountService) { }
 
   ngOnInit() {
+    // test
     this.route.queryParams.subscribe((params) =>{
       this.page = params['page'] || EPagination.page;
       this.limit = params['limit'] || EPagination.litmit;
